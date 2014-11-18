@@ -12,7 +12,7 @@ fi
 # Make sure four params are present (but not validating params contents)
 if [ -z "$4" ]; then
 	echo
-	echo OpenVPN client semi-automatic deployment rev001
+	echo OpenVPN client semi-automatic deployment rev002
 	echo ..::alxj::.. // kolektyw kilku.com
 	echo This is VERY VERY untested yet!!!
 	echo usage: setup_ovpn_client serverUser serverLocation clientName port
@@ -21,7 +21,7 @@ if [ -z "$4" ]; then
 	echo serverLocation - IP or url of your VPN server
 	echo clientName - name to populate KEY_CN in key certificate, this will appear in ovpn log routing table
 	echo port - port to use, must be same as on server, usually 1194, 22 will work ok too
-	echo example setup_ovpn_client dupek myvpn.com srubka 22
+	echo example setvpn.sh dupek myvpn.com srubka 22
 	exit 1
 fi
 
@@ -42,7 +42,7 @@ echo port: $port
 
  echo STEP1: LOCAL - installing OpenVPN via apt-get... 
  
- apt-get install -y openvpn
+ apt-get install -y openvpn openssh-server
 
  echo STEP2: SERVER - generating keys, will ask for server password twice... 
 	
